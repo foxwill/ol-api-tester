@@ -3,6 +3,7 @@
 import sys
 import requests
 import methods
+import functions
 
 """
 API Key:
@@ -25,5 +26,5 @@ if (len(sys.argv)<=1) or (len(sys.argv)>2) or ((len(sys.argv[1])) < 40 or (len(s
 	exit(0)
 
 	
-methods.testConnection(api_key)
-methods.printMenu(api_key)
+functions.testConnection(api_key)
+functions.printMenu(api_key)
