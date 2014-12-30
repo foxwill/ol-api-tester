@@ -7,7 +7,7 @@ import functions
 
 """
 API Key:
-7dc7fff7dfbc29055d98aafe0b990346004c1054
+7dc7fff7dfbc29055d9fe0b990346004c1054
 """
 
 api_key = sys.argv[1]
@@ -18,7 +18,7 @@ baseURL = 'app.onelogin.com'
 
 if (len(sys.argv)<=1) or (len(sys.argv)>2) or ((len(sys.argv[1])) < 40 or (len(sys.argv[1]) >= 41)):
 	print ('Usage: %s APIKEY' % sys.argv[0])
-	print ('Example: %s 7dc7fff7dfbaaa055d98aafe0b990346004c1054' % sys.argv[0])
+	print ('Example: %s 7dc7fff7dfbaaa055dfe0b990346004c1054' % sys.argv[0])
 	if len(sys.argv[1]) < 40:
 		print "API key is too short"
 	else:
