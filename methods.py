@@ -66,19 +66,19 @@ def userAPI(api_key):
 
 		updateChoice = raw_input('Enter a selection: ')
 		if updateChoice == '1':
-			firstName = raw_input('Enter a value for FirstName')
+			firstName = raw_input('Enter a value for FirstName ')
 			if firstName:
 				payload = '<user><firstname>' + firstName + '</firstname></user>'
 				r = requests.put(target, data=payload, auth=(api_key, password))
 				print r.status_code
 		elif updateChoice == 2:
-			lastName = raw_input('Enter a value for LastName')
+			lastName = raw_input('Enter a value for LastName ')
 		elif updateChoice == 3:
-			userName = raw_input('Enter a value for UserName')
+			userName = raw_input('Enter a value for UserName ')
 		elif updateChoice == 4:
-			phone = raw_input('Enter a value for Phone')
+			phone = raw_input('Enter a value for Phone ')
 		elif updateChoice == 5:
-			email = raw_input('Enter a value for email')
+			email = raw_input('Enter a value for email ')
 		elif updateChoice == 7:
 			userAPI(api_key)
 
@@ -96,24 +96,45 @@ def userAPI(api_key):
 
 
 
-def accountAPI():
+def accountAPI(api_key):
 	"""test"""
 	path = '/api/v1/accounts/'
 
-def rolesAPI():
+def rolesAPI(api_key):
+	"""test"""
+	path = '/api/v1/roles/'
+	print 'Make a Selection'
+	print '1. Show Role'
+	print '2. List Roles'
+	print '3. Return to Menu'
+	userChoice = int(raw_input('Make a selection'))
+	if userChoice == 1:
+		userID = raw_input("Please provide UserID: ")
+		target = baseURL + path + '/' + userID + '.xml'
+		r = requests.get(target, auth=(api_key, password))
+		print r.text
+		rolesAPI(api_key)
+	elif userChoice == 2:
+		target = baseURL + '/api/v1/roles.xml'
+		r = requests.get(target, auth=(api_key, password))
+		print r.text
+		rolesAPI(api_key)
+	elif userChoice == 3:
+		functions.printMenu(api_key)
+
+def groupsAPI(api_key):
+	"""test"""
+	path = '/api/v1/groups/'
+
+def eventsAPI(api_key):
+	"""test"""
+	path = '/api/v1/events/'
+
+def launchAPI(api_key):
 	"""test"""
 
-def groupsAPI():
+def delegateAPI(api_key):
 	"""test"""
 
-def eventsAPI():
-	"""test"""
-
-def launchAPI():
-	"""test"""
-
-def delegateAPI():
-	"""test"""
-
-def linkAPI():
+def linkAPI(api_key):
 	"""test"""
