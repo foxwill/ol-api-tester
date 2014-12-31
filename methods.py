@@ -123,7 +123,8 @@ def userAPI(api_key):
 						elif int(updateChoice) == 6:
 							attrName = raw_input('Enter the custom attribute shortname: ')
 							attrValue = raw_input('Enter the value to write to this attribute: ')
-							payload = """<user><custom_attribute_""" + attrName + """>""" + attrValue + """</custom_attribute_""" + attrName + """></user>"""
+							payload = """<user><custom_attribute_""" + attrName + """>""" + attrValue + \
+							"""</custom_attribute_""" + attrName + """></user>"""
 							r = s.put(baseURL + v3path + '/' + userID + '.xml', data=payload, auth=(api_key, password))
 							userAPI(api_key)
 						elif int(updateChoice) == 7:
