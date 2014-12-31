@@ -13,6 +13,7 @@ def testConnection(api_key):
 		print 'SUCCESS!  API Token is good!\n'
 	else:
 		print 'ERROR! Connection Failed with status '+ str(r.status_code)
+		exit()
 
 
 def printMenu(api_key):
