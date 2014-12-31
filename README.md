@@ -13,3 +13,6 @@ example:
 python main.py 2967c9363a305a6ef42679c3622ac9fb908aab5b
 
 any questions.. patric [dot] fox [at] onelogin [dot] com
+
+Nice to Have:
+update each menu option so it will print out a curl command that can be shared with customers
