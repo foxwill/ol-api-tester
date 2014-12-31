@@ -33,7 +33,7 @@ def printMenu(api_key):
 	choice = 0
 	while (choice == 0 and choice <= 9):
 		choice = raw_input("Choice: ")
-		if choice in 'abcedefghijklmnopqrstuvwxyz':
+		if not choice in '123456789':
 			print "Invalid Selection"
 			printMenu(api_key)	
 		else:
