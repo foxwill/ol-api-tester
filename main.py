@@ -5,10 +5,6 @@ import requests
 import methods
 import functions
 
-"""
-API Key:
-7dc7fff7dfbc29055d9fe0b990346004c1054
-"""
 
 api_key = sys.argv[1]
 password = 'x'
