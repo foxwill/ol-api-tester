@@ -39,7 +39,7 @@ def userAPI(api_key):
 	userChoice = 0
 	while userChoice == 0 and userChoice <= 7:
 		userChoice = raw_input('Selection: \n')
-		if userChoice in 'abcedefghijklmnopqrstuvwxyz':
+		if not userChoice in '1234567':
 			print "Invalid Selection"
 			eventsAPI(api_key)	
 		else:
@@ -91,7 +91,7 @@ def userAPI(api_key):
 				updateChoice = 0
 				while updateChoice == 0 and updateChoice <= 7:
 					updateChoice = raw_input('Enter a selection:  \n')
-					if userChoice in 'abcedefghijklmnopqrstuvwxyz':
+					if not userChoice in '1234567':
 						print "Invalid Selection"
 						eventsAPI(api_key)	
 					else:
@@ -161,7 +161,7 @@ def rolesAPI(api_key):
 	userChoice = 0
 	while userChoice == 0 and userChoice <= 3:
 		userChoice = raw_input('Make a selection:  \n')
-		if userChoice in 'abcedefghijklmnopqrstuvwxyz':
+		if not userChoice in '123':
 			print "Invalid Selection"
 			eventsAPI(api_key)	
 		else:
@@ -197,7 +197,7 @@ def groupsAPI(api_key):
 	userChoice = 0
 	while userChoice == 0 and userChoice <= 3:
 		userChoice = raw_input('Make a selection:  \n')
-		if userChoice in 'abcedefghijklmnopqrstuvwxyz':
+		if not userChoice in '123':
 			print "Invalid Selection"
 			eventsAPI(api_key)	
 		else:
@@ -233,7 +233,7 @@ def eventsAPI(api_key):
 	userChoice = 0
 	while userChoice == 0 and userChoice <= 4:
 		userChoice = raw_input('Make a selection:  \n')
-		if userChoice in 'abcedefghijklmnopqrstuvwxyz':
+		if not userChoice in '1234':
 			print "Invalid Selection"
 			eventsAPI(api_key)	
 		else:
