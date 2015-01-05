@@ -99,26 +99,36 @@ def userAPI(api_key):
 							firstName = raw_input('Enter a value for FirstName: ')
 							payload = """<user><firstname>""" + firstName + """</firstname></user>"""
 							r = s.put(baseURL + v3path + '/' + userID + '.xml', data=payload, auth=(api_key, password))
+							print "curl -u " + api_key + ":" + password + ' "' + baseURL + v3path + '/' + userID + '.xml' \
+							+ '" -d "' + payload + '" -X PUT -h "content-type: text/xml"'
 							userAPI(api_key)
 						elif int(updateChoice) == 2:
 							lastName = raw_input('Enter a value for LastName: ')
 							payload = """<user><lastname>""" + lastName + """</lastname></user>"""
 							r = s.put(baseURL + v3path + '/' + userID + '.xml', data=payload, auth=(api_key, password))
+							print "curl -u " + api_key + ":" + password + ' "' + baseURL + v3path + '/' + userID + '.xml' \
+							+ '" -d "' + payload + '" -X PUT -h "content-type: text/xml"'
 							userAPI(api_key)
 						elif int(updateChoice) == 3:
 							userName = raw_input('Enter a value for UserName: ')
 							payload = """<user><username>""" + userName + """</username></user>"""
 							r = s.put(baseURL + v3path + '/' + userID + '.xml', data=payload, auth=(api_key, password))
+							print "curl -u " + api_key + ":" + password + ' "' + baseURL + v3path + '/' + userID + '.xml' \
+							+ '" -d "' + payload + '" -X PUT -h "content-type: text/xml"'
 							userAPI(api_key)
 						elif int(updateChoice) == 4:
 							phone = raw_input('Enter a value for Phone: ')
 							payload = """<user><phone>""" + phone + """</phone></user>"""
 							r = s.put(baseURL + v3path + '/' + userID + '.xml', data=payload, auth=(api_key, password))
+							print "curl -u " + api_key + ":" + password + ' "' + baseURL + v3path + '/' + userID + '.xml' \
+							+ '" -d "' + payload + '" -X PUT -h "content-type: text/xml"'
 							userAPI(api_key)
 						elif int(updateChoice) == 5:
 							email = raw_input('Enter a value for email: ')
 							payload = """<user><email>""" + email + """</email></user>"""
 							r = s.put(baseURL + v3path + '/' + userID + '.xml', data=payload, auth=(api_key, password))
+							print "curl -u " + api_key + ":" + password + ' "' + baseURL + v3path + '/' + userID + '.xml' \
+							+ '" -d "' + payload + '" -X PUT -h "content-type: text/xml"'
 							userAPI(api_key)
 						elif int(updateChoice) == 6:
 							attrName = raw_input('Enter the custom attribute shortname: ')
@@ -126,6 +136,8 @@ def userAPI(api_key):
 							payload = """<user><custom_attribute_""" + attrName + """>""" + attrValue + \
 							"""</custom_attribute_""" + attrName + """></user>"""
 							r = s.put(baseURL + v3path + '/' + userID + '.xml', data=payload, auth=(api_key, password))
+							print "curl -u " + api_key + ":" + password + ' "' + baseURL + v3path + '/' + userID + '.xml' \
+							+ '" -d "' + payload + '" -X PUT -h "content-type: text/xml"'
 							userAPI(api_key)
 						elif int(updateChoice) == 7:
 							userAPI(api_key)
