@@ -49,12 +49,14 @@ def userAPI(api_key):
 				target = baseURL + v2path + '/' + userID + '.xml'
 				r = requests.get(target, auth=(api_key, password))
 				print r.text
+				functions.buildCurl(api_key,baseURL,v2path,userID)
 				userAPI(api_key)
 			elif int(userChoice) == 2:
 				#option 2 provides a list of all users
 				target = baseURL + v2path + '.xml'
 				r = requests.get(target, auth=(api_key, password))
 				print r.text
+				functions.buildCurl(api_key,baseURL,v2path)
 				userAPI(api_key)
 			elif int(userChoice) == 3:
 				#not implimented completely
@@ -93,42 +95,37 @@ def userAPI(api_key):
 					updateChoice = raw_input('Enter a selection:  \n')
 					if not userChoice in '1234567':
 						print "Invalid Selection"
-						eventsAPI(api_key)	
+						userAPI(api_key)	
 					else:
 						if int(updateChoice) == 1:
 							firstName = raw_input('Enter a value for FirstName: ')
 							payload = """<user><firstname>""" + firstName + """</firstname></user>"""
 							r = s.put(baseURL + v3path + '/' + userID + '.xml', data=payload, auth=(api_key, password))
-							print "curl -u " + api_key + ":" + password + ' "' + baseURL + v3path + '/' + userID + '.xml' \
-							+ '" -d "' + payload + '" -X PUT -h "content-type: text/xml"'
+							functions.buildCurl(api_key,payload,baseURL,v3path,userID)
 							userAPI(api_key)
 						elif int(updateChoice) == 2:
 							lastName = raw_input('Enter a value for LastName: ')
 							payload = """<user><lastname>""" + lastName + """</lastname></user>"""
 							r = s.put(baseURL + v3path + '/' + userID + '.xml', data=payload, auth=(api_key, password))
-							print "curl -u " + api_key + ":" + password + ' "' + baseURL + v3path + '/' + userID + '.xml' \
-							+ '" -d "' + payload + '" -X PUT -h "content-type: text/xml"'
+							functions.buildCurl(api_key,payload,baseURL,v3path,userID)
 							userAPI(api_key)
 						elif int(updateChoice) == 3:
 							userName = raw_input('Enter a value for UserName: ')
 							payload = """<user><username>""" + userName + """</username></user>"""
 							r = s.put(baseURL + v3path + '/' + userID + '.xml', data=payload, auth=(api_key, password))
-							print "curl -u " + api_key + ":" + password + ' "' + baseURL + v3path + '/' + userID + '.xml' \
-							+ '" -d "' + payload + '" -X PUT -h "content-type: text/xml"'
+							functions.buildCurl(api_key,payload,baseURL,v3path,userID)
 							userAPI(api_key)
 						elif int(updateChoice) == 4:
 							phone = raw_input('Enter a value for Phone: ')
 							payload = """<user><phone>""" + phone + """</phone></user>"""
 							r = s.put(baseURL + v3path + '/' + userID + '.xml', data=payload, auth=(api_key, password))
-							print "curl -u " + api_key + ":" + password + ' "' + baseURL + v3path + '/' + userID + '.xml' \
-							+ '" -d "' + payload + '" -X PUT -h "content-type: text/xml"'
+							functions.buildCurl(api_key,payload,baseURL,v3path,userID)
 							userAPI(api_key)
 						elif int(updateChoice) == 5:
 							email = raw_input('Enter a value for email: ')
 							payload = """<user><email>""" + email + """</email></user>"""
 							r = s.put(baseURL + v3path + '/' + userID + '.xml', data=payload, auth=(api_key, password))
-							print "curl -u " + api_key + ":" + password + ' "' + baseURL + v3path + '/' + userID + '.xml' \
-							+ '" -d "' + payload + '" -X PUT -h "content-type: text/xml"'
+							functions.buildCurl(api_key,payload,baseURL,v3path,userID)
 							userAPI(api_key)
 						elif int(updateChoice) == 6:
 							attrName = raw_input('Enter the custom attribute shortname: ')
@@ -136,8 +133,7 @@ def userAPI(api_key):
 							payload = """<user><custom_attribute_""" + attrName + """>""" + attrValue + \
 							"""</custom_attribute_""" + attrName + """></user>"""
 							r = s.put(baseURL + v3path + '/' + userID + '.xml', data=payload, auth=(api_key, password))
-							print "curl -u " + api_key + ":" + password + ' "' + baseURL + v3path + '/' + userID + '.xml' \
-							+ '" -d "' + payload + '" -X PUT -h "content-type: text/xml"'
+							functions.buildCurl(api_key,payload,baseURL,v3path,userID)
 							userAPI(api_key)
 						elif int(updateChoice) == 7:
 							userAPI(api_key)
@@ -152,6 +148,7 @@ def userAPI(api_key):
 				r = s.delete(target, auth=(api_key, password))
 				if r.status_code == 200:
 					print '-=-=-=-=User Deleted=-=-=-=- \n'
+					functions.buildCurl(api_key,baseURL,v1path,userID)
 				userAPI(api_key)
 			elif int(userChoice) == 7:
 				print "Returning to Menu\n"

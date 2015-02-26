@@ -65,3 +65,21 @@ def printMenu(api_key):
 	else:
 		print "Invalid Selection"
 		printMenu(api_key)
+
+def buildCurl(api_key,baseURL,path,userID='null',payload='null'):
+	"""
+	write curl output for easier testing 
+	"""
+	if userID == 'null' and payload == 'null':
+		print "curl -u " + api_key + ":x " + '"' + baseURL + path + '.xml1"'
+	elif userID != 'null':
+		if payload != 'null':
+			print "curl -u " + api_key + ":x " + '"' + baseURL + path + '/' + userID + '.xml2"'
+			print payload
+		else:
+			print "curl -u " + api_key + ":x " + ' "' + baseURL + path + '/' + userID + '.xml' \
+	+ '" -X DELETE'
+	else:
+		print "curl -u " + api_key + ":x " + ' "' + baseURL + path + '/' + userID + '.xml' \
+	+ '" -d "' + payload + '" -X PUT -h "content-type: text/xml"'
+	
